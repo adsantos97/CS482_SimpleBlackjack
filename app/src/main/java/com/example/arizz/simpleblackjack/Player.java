@@ -1,7 +1,5 @@
 package com.example.arizz.simpleblackjack;
 
-import java.util.ArrayList;
-
 /**
  * A class that represents a Player.
  * @author Arizza Santos
@@ -9,5 +7,15 @@ import java.util.ArrayList;
  */
 public class Player {
 
+    protected Hand hand;
+    protected String name;
 
+    /**
+     * Player parameterized constructor.
+     * @param name name of player
+     */
+    public Player(String name) {
+        this.hand = new Hand(5);
+        this.name = name;
+    }
 }

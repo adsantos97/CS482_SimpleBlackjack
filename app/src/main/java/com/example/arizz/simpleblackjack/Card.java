@@ -8,9 +8,9 @@ package com.example.arizz.simpleblackjack;
 public class Card {
 
     /** Rank, Suit and value of this Card. */
-    private Rank rank;
-    private Suit suit;
-    private int value;
+    protected Rank rank;
+    protected Suit suit;
+    protected int value;
 
     /**
      * Card parameterized constructor.
@@ -30,9 +30,9 @@ public class Card {
     public int determineValue() {
         int value = 0;
 
-        switch(rank) {
+        switch (rank) {
             case ACE:
-                value = 11;
+                value = 1;
                 break;
             case TWO:
                 value = 2;
@@ -83,5 +83,4 @@ public class Card {
     public String toString() {
         return this.rank + " of " + this.suit;
     }
-
 }

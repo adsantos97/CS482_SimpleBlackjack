@@ -52,5 +52,4 @@ public class Deck {
     public Card dealCard() {
         return this.deck.remove(0);
     }
-
 }
