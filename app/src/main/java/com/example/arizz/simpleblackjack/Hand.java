@@ -75,20 +75,4 @@ public class Hand {
     public boolean hasBlackjack() {
         return (hand.get(0).value + hand.get(1).value) == 21;
     }
-
-    /**
-     * Checks if there is an Ace in the Hand.
-     * @return true if there is at least one Ace in the Hand.
-     */
-    public boolean checkAce() {
-        boolean aceInHand = false;
-
-        for (Card c: this.hand) {
-            if (c.rank == Rank.ACE) {
-                aceInHand = true;
-            }
-        }
-
-        return aceInHand;
-    }
 }

@@ -11,9 +11,12 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    private SimpleBlackjack game;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        game = new SimpleBlackjack("Player", "Dealer");
         setContentView(R.layout.activity_main);
     }
 }
