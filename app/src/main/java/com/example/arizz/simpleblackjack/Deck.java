@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * A class that represents a Deck object.
+ * A class that represents a Deck.
  * @author Arizza Santos
  * @version 1.0 10/4/2018
  */
@@ -14,7 +14,7 @@ public class Deck {
     private ArrayList<Card> deck;
 
     /**
-     * Initializes a Deck and shuffles
+     * Initializes a Deck and shuffles it.
      * @param numofDecks number of decks being created/used together
      */
     public Deck(int numofDecks) {
@@ -24,8 +24,8 @@ public class Deck {
     }
 
     /**
-     * Creates a deck based on the number of decks
-     * being used
+     * Creates a Deck based on the number of decks
+     * being used.
      * @param numofDecks number of decks being used
      */
     public void createDeck(int numofDecks) {
@@ -39,19 +39,18 @@ public class Deck {
     }
 
     /**
-     * Shuffles the Deck
+     * Shuffles the Deck.
      */
     public void shuffleDeck() {
         Collections.shuffle(this.deck);
     }
 
     /**
-     * Deals a card from the Deck
+     * Deals a card from the Deck.
      * @return top Card from the Deck
      */
     public Card dealCard() {
-        Card card = this.deck.remove(0);
-        return card;
+        return this.deck.remove(0);
     }
 
 }
