@@ -3,6 +3,6 @@
     <string name="dealer_text">Dealer\'s Hand:</string>
     <string name="player_text">Player\'s Hand:</string>
     <string name="hit">Hit</string>
-    <string name="stay">Stay</string>
+    <string name="stand">Stand</string>
     <string name="new_game">New Game</string>
 </resources>

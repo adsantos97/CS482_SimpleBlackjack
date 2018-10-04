@@ -15,12 +15,10 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         Configuration config = getResources().getConfiguration();
         modifyLayout(config);
-        //setContentView(R.layout.activity_main);
     }
 
     /**
-     * Checks the orientation and screen dimension when
-     * the user rotates the device
+     * Checks the orientation when the user rotates the device
      * @param newConfig Configuration object that specifies the new
      *                  device configuration
      */
@@ -29,6 +27,7 @@ public class MainActivity extends AppCompatActivity{
         Log.w(MA, "Height: " + newConfig.screenHeightDp);
         Log.w(MA, "Width: " + newConfig.screenWidthDp);
 
+        /** Checks the device orientation using Logcat */
         Log.w(MA, "Orientation: " + newConfig.orientation);
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             Log.w(MA, "Horizontal position.");
@@ -36,6 +35,16 @@ public class MainActivity extends AppCompatActivity{
             Log.w(MA, "Portrait position.");
         } else {
             Log.w(MA, "Undetermined position.");
+        }
+
+        modifyLayout(newConfig);
+    }
+
+    public void modifyLayout(Configuration newConfig) {
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setContentView(R.layout.activity_main_landscape);
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            setContentView(R.layout.activity_main);
         }
     }
 

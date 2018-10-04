@@ -8,13 +8,31 @@
     tools:context=".MainActivity">
 
     <Button
+        android:layout_height="30dp"
+        android:layout_width="80dp"
+        android:id="@+id/new_game_button"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/newGameColor"
+        android:text="@string/new_game"
+        android:textColor="@color/buttonTextColor"
+        />
+
+    <Button
         android:id="@+id/hit_button"
-        style="@style/ViewStyle"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="425dp"
+        style="@style/ButtonLandscape"
+        android:layout_marginLeft="80dp"
         android:background="@color/hitColor"
-        android:textSize="20sp"
         android:text="@string/hit"
+        />
+
+    <Button
+        android:id="@+id/stand_button"
+        style="@style/ButtonLandscape"
+        android:layout_toRightOf="@+id/hit_button"
+        android:layout_marginLeft="30dp"
+        android:background="@color/standColor"
+        android:text="@string/stand"
         />
 
 </RelativeLayout>
