@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ViewStyle">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">55dp</item>
+    </style>
+
+    <style name="ButtonStyle" parent="ViewStyle">
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginTop">200dp</item>
+    </style>
+
 </resources>
+
