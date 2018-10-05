@@ -18,6 +18,54 @@
         android:textColor="@color/buttonTextColor"
         />
 
+    <TextView
+        android:id="@+id/label_dealer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_game_button"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:text="@string/dealer_text"
+        />
+
+    <TextView
+        android:id="@+id/dealer_hand_sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_game_button"
+        android:layout_toRightOf="@id/label_dealer"
+        android:layout_alignTop="@id/label_dealer"
+        android:layout_alignRight="@id/hit_button"
+        android:gravity="right"
+        android:textSize="15sp"
+        android:text="@string/sum_text"
+        />
+
+    <TextView
+        android:id="@+id/label_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_game_button"
+        android:layout_toRightOf="@id/dealer_hand_sum"
+        android:layout_alignTop="@id/dealer_hand_sum"
+        android:layout_alignLeft="@id/stand_button"
+        android:textSize="15sp"
+        android:text="@string/player_text"
+        />
+
+    <TextView
+        android:id="@+id/player_hand_sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_game_button"
+        android:layout_toRightOf="@id/label_player"
+        android:layout_alignTop="@id/label_player"
+        android:layout_marginLeft="160dp"
+        android:textSize="15sp"
+        android:text="@string/sum_text"
+        />
+
     <Button
         android:id="@+id/hit_button"
         style="@style/ButtonLandscape"
