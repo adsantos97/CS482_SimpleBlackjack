@@ -93,7 +93,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/dealer_cards_container"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         android:textSize="20sp"
         android:text="@string/player_text"
@@ -113,6 +113,7 @@
 
     <!-- Player's Cards -->
     <LinearLayout
+        android:id="@+id/player_cards_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/label_player"
@@ -155,6 +156,19 @@
             />
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/player_cards_container"
+        android:layout_marginTop="20dp"
+        android:padding="5dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:background="@color/resultColor"
+        android:text="Nothing yet."
+        />
 
     <Button
         android:id="@+id/hit_button"
