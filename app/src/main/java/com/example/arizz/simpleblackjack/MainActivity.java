@@ -6,13 +6,21 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+/**
+ * This is the Controller.
+ * @author Arizza Santos
+ * @version 1.0 10/4/2018
+ */
+
 public class MainActivity extends AppCompatActivity{
 
     public final static String MA = "MainActivity";
+    private SimpleBlackjack game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        game = new SimpleBlackjack("Dealer", "Player");
         Configuration config = getResources().getConfiguration();
         modifyLayout(config);
     }

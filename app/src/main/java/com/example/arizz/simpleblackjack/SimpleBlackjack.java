@@ -1,7 +1,5 @@
 package com.example.arizz.simpleblackjack;
 
-import java.util.ArrayList;
-
 /**
  * A class that represents a SimpleBlackjack.
  * If lowercase "player" is used, it is referencing the private instance variable.
@@ -11,45 +9,60 @@ import java.util.ArrayList;
  */
 public class SimpleBlackjack {
 
-    private Deck newDeck;
-    private Player player;
-    private Player dealer;
-    private boolean playerDone;
-    private boolean dealerDone;
+    private Deck deck;
+    private Player player1;
+    private Player player2;
+    private boolean player1Done;
+    private boolean player2Done;
 
     /**
      * Initialize SimpleBlackjack.
-     * @param playerName the player's name
-     * @param dealerName the dealer's name
+     * @param player1Name the player 1's name -- for our game, dealer is first
+     * @param player2Name the player 2's name -- for our game, player is second
      */
-    public SimpleBlackjack (String playerName, String dealerName) {
-        player = new Player(playerName);
-        dealer = new Player(dealerName);
-        newDeck = new Deck(2); // playing with 2 decks (i.e. 104 cards)
+    public SimpleBlackjack (String player1Name, String player2Name) {
+        deck = new Deck(2); // playing with 2 decks (i.e. 104 cards)
+        player1 = new Player(player1Name);
+        player2 = new Player(player2Name);
+        player1Done = false;
+        player2Done = false;
     }
+
+    /**
+     * Getter for the Deck
+     */
+    public Deck getDeck() { return this.deck; }
+
+    /**
+     * Getter for player 1
+     */
+    public Player getPlayer1() { return this.player1; }
+
+    /**
+     * Getter for player 2
+     */
+    public Player getPlayer2() { return this.player2; }
 
     /**
      * Deals cards for the beginning of the game.
      */
     public void dealTheGame() {
         /** initial states */
-        boolean blackjack = false;
-        playerDone = false;
-        dealerDone = false;
+        boolean blackjack;
 
         /** The first four cards dealt from the Deck */
-        Card card1 = newDeck.dealCard();
-        Card card2 = newDeck.dealCard();
-        Card card3 = newDeck.dealCard();
-        Card card4 = newDeck.dealCard();
+        Card card1 = this.deck.dealCardFromDeck();
+        Card card2 = this.deck.dealCardFromDeck();
+        Card card3 = this.deck.dealCardFromDeck();
+        Card card4 = this.deck.dealCardFromDeck();
 
-        dealer.hand.addToHand(card1);
-        player.hand.addToHand(card2);
-        dealer.hand.addToHand(card3);
-        player.hand.addToHand(card4);
+        player1.getHand().addToHand(card1);
+        player1.getHand().addToHand(card3);
+        player2.getHand().addToHand(card2);
+        player2.getHand().addToHand(card4);
 
         /** check if initial cards are Blackjacks */
-        blackjack = checkIfBlackjack();
+        blackjack = checkIfBlackjack(player1.getHand(), player2.getHand());
 
         if(blackjack) {
             decideWinner();
@@ -58,13 +71,16 @@ public class SimpleBlackjack {
 
     /**
      * Checks if natural Blackjack on initial cards.
+     * @param player1 player 1's Hand
+     * @param player2 player 2's Hand
      */
-    public boolean checkIfBlackjack() {
+    public boolean checkIfBlackjack(Hand player1, Hand player2) {
         boolean blackjack = false;
 
-        if(player.hand.hasBlackjack() || dealer.hand.hasBlackjack()) {
-            playerDone = true;
-            dealerDone = true;
+        if(player2.hasNaturalBlackjack()
+                || player1.hasNaturalBlackjack()) {
+            player2Done = true;
+            player1Done = true;
             blackjack = true;
         }
 
@@ -72,23 +88,16 @@ public class SimpleBlackjack {
     }
 
     /**
-     * Get the player's hand.
-     * @param p the player
-     */
-    public ArrayList<Card> getHand(Player p) {
-        return p.hand.hand;
-    }
-
-    /**
      * "Hit" method (for player) to ask for another card in an
      * attempt to get closer to a count of or exactly 21.
      */
     public void hit() {
-        player.hand.addToHand(newDeck.dealCard());
+        player2.getHand().addToHand(this.deck.dealCardFromDeck());
 
-        if (player.hand.sumHand() > 21) {
-            playerDone = true;
-            dealerDone = true;
+        if (player2.getHand().sumHand() > 21) {
+            player2Done = true;
+            player1Done = true;
+            decideWinner();
         }
     }
 
@@ -96,23 +105,23 @@ public class SimpleBlackjack {
      * Player stays and turn is over.
      */
     public void stand() {
-        playerDone = true;
+        player2Done = true;
     }
 
     /**
      * Decides the winner.
      * @return Player that won
      */
-    public String decideWinner() {
-        int playerSum = player.hand.sumHand();
-        int dealerSum = dealer.hand.sumHand();
+    public void decideWinner() {
+        int playerSum = player2.getHand().sumHand();
+        int dealerSum = player1.getHand().sumHand();
 
         if (playerSum > dealerSum && playerSum <= 21 || dealerSum > 21) {
-            return player.name;
+            System.out.println(player2.getName());
         } else if (playerSum == dealerSum) {
-            return "Tie";
+            System.out.println("Tie");
         } else {
-            return dealer.name;
+            System.out.println(player1.getName());
         }
     }
 }

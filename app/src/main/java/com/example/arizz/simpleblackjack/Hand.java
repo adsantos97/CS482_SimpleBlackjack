@@ -3,23 +3,30 @@ package com.example.arizz.simpleblackjack;
 import java.util.ArrayList;
 
 /**
- * A class that represents a card Hand.
+ * A class that represents a player's Hand of cards.
  * @author Arizza Santos
  * @version 1.0 10/4/2018
  */
 public class Hand {
 
-    protected ArrayList<Card> hand;
-    private int maxHandSize;
+    /** Stores Cards to form a Hand */
+    private ArrayList<Card> hand;
+    /** The max number of card in a Hand */
+    private int handMaxSize;
 
     /**
      * Hand parameterized constructor.
-     * @param maxHandSize maximum size of Hand
+     * @param handMaxSize maximum size of Hand
      */
-    public Hand(int maxHandSize) {
+    public Hand(int handMaxSize) {
         this.hand = new ArrayList<Card>();
-        this.maxHandSize = maxHandSize;
+        this.handMaxSize = handMaxSize;
     }
+
+    /** Getter for the Hand */
+    //public ArrayList<Card> getHand() {
+    //    return this.hand;
+    //}
 
     /**
      * Adds a card to the Hand if Hand isn't full.
@@ -37,42 +44,64 @@ public class Hand {
      *         is equal to the maximum size of Hand
      */
     public boolean isHandFull () {
-        return hand.size() == maxHandSize;
+        return hand.size() == handMaxSize;
     }
 
     /**
      * Determines sum of values of the cards in the Hand.
-     * @return sum of the Hand
+     * @return sum/total of the Hand
      */
     public int sumHand() {
-        int sumHand = 0;
+        int total = 0;
         int numAces = 0;
 
         for (Card c: this.hand) {
 
-            if (c.rank == Rank.ACE) {
+            if (c.getRank() == Rank.ACE) {
                 numAces++;
-                sumHand += 11;
-            } else if (c.value == 10) {
-                sumHand += 10;
+                total += 11;
+            } else if (c.getValue() == 10) {
+                total += 10;
             } else {
-                sumHand += c.value;
+                total += c.getValue();
             }
         }
 
-        while (sumHand > 21 && numAces > 0) {
-            sumHand -= 10;
+        while (total > 21 && numAces > 0) {
+            total -= 10;
             numAces--;
         }
 
-        return sumHand;
+        return total;
     }
 
     /**
      * Checks if the Hand contains a natural Blackjack
      * @return true if the first two cards make a Blackjack
      */
-    public boolean hasBlackjack() {
-        return (hand.get(0).value + hand.get(1).value) == 21;
+    public boolean hasNaturalBlackjack() {
+        return (hand.get(0).getValue() + hand.get(1).getValue()) == 21;
+    }
+
+    /**
+     * Clears/resets the Hand
+     */
+    public void resetHand() {
+        this.hand.clear();
+    }
+
+    /**
+     * Outputs the cards in the Hand.
+     * It also outputs the number of cards in the Hand.
+     * Used for testing purposes.
+     */
+    public void dumpHand() {
+        int i = 0;
+        for (Card c : hand) {
+            i++;
+            System.out.println(c + " Value: " + c.getValue());
+        }
+
+        System.out.println("Number of Cards in Hand: " + i);
     }
 }

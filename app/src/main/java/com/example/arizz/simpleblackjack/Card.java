@@ -7,32 +7,52 @@ package com.example.arizz.simpleblackjack;
  */
 public class Card {
 
-    /** Rank, Suit and value of this Card. */
-    protected Rank rank;
-    protected Suit suit;
-    protected int value;
+    /** Rank of this Card. */
+    private Rank rank;
+    /** Suit of this Card. */
+    private Suit suit;
+    /** Value of this Card. */
+    private int value;
+    /** Image ID used for the Card images in Drawable. */
+    private String imageID;
 
     /**
      * Card parameterized constructor.
-     * @param suit the suit of the new card
      * @param rank the rank of the new card
+     * @param suit the suit of the new card
      */
-    public Card(Suit suit, Rank rank) {
+    public Card(Rank rank, Suit suit) {
         this.rank = rank;
         this.suit = suit;
         this.value = determineValue();
+        this.imageID = this.toStringID();
     }
 
     /**
+     * Getter for the Card's rank.
+     */
+    public Rank getRank() { return this.rank; }
+
+    /**
+     * Getter for the Card's value.
+     */
+    public int getValue() { return this.value; }
+
+    /**
+     * Getter for the Card's image ID.
+     */
+    public String getImageID() { return this.imageID; }
+
+    /**
      * Determines the value of card based on Rank.
-     * @return value value based on Rank of the card
+     * @return value based on Rank of the card
      */
     public int determineValue() {
         int value = 0;
 
         switch (rank) {
             case ACE:
-                value = 1;
+                value = 11;
                 break;
             case TWO:
                 value = 2;
@@ -76,11 +96,19 @@ public class Card {
     }
 
     /**
+     * Creates the image ID for the Card.
+     * @return string ID of Card
+     */
+    public String toStringID() {
+        return this.toString().toLowerCase() + ".png";
+    }
+
+    /**
      * Override toString() method.
      * @return string representation of Card
      */
     @Override
     public String toString() {
-        return this.rank + " of " + this.suit;
+        return this.rank + "_of_" + this.suit;
     }
 }

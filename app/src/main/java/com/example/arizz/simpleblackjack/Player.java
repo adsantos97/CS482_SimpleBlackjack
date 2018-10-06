@@ -7,8 +7,8 @@ package com.example.arizz.simpleblackjack;
  */
 public class Player {
 
-    protected Hand hand;
-    protected String name;
+    private Hand hand;
+    private String name;
 
     /**
      * Player parameterized constructor.
@@ -17,5 +17,32 @@ public class Player {
     public Player(String name) {
         this.hand = new Hand(5);
         this.name = name;
+    }
+
+    /** Getter for the Hand */
+    public Hand getHand() {
+        return this.hand;
+    }
+
+    /** Getter for the Hand */
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * "Hit" method (for player) to ask for another card in an
+     * attempt to get closer to a count of or exactly 21.
+     * @param d the Deck to hit from
+     */
+    public void hit(Deck d) {
+        Card c = d.dealCardFromDeck();
+        this.hand.addToHand(c);
+    }
+
+    /**
+     * Clears/resets the player
+     */
+    public void reset() {
+        this.hand.resetHand();
     }
 }

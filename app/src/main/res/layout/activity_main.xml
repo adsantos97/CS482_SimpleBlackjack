@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Arizza Santos
+     10/4/2018
+     This represents the portrait view.
+-->
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +13,7 @@
     android:background="@color/backgroundColor"
     tools:context=".MainActivity">
 
+    <!-- New Game Button -->
     <Button
         android:layout_height="30dp"
         android:layout_width="80dp"
@@ -157,6 +164,7 @@
 
     </LinearLayout>
 
+    <!-- Text for the Results of the game -->
     <TextView
         android:id="@+id/result"
         android:layout_width="wrap_content"
@@ -170,6 +178,7 @@
         android:text="Nothing yet."
         />
 
+    <!-- Hit Button -->
     <Button
         android:id="@+id/hit_button"
         style="@style/ButtonPortrait"
@@ -178,6 +187,7 @@
         android:text="@string/hit"
         />
 
+    <!-- Stand Button -->
     <Button
         android:id="@+id/stand_button"
         style="@style/ButtonPortrait"

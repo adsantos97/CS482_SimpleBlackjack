@@ -1,7 +1,7 @@
 package com.example.arizz.simpleblackjack;
 
 /**
- * Enumeration representing Value constants of Cards.
+ * Enumeration representing Rank constants of Cards.
  * @author Arizza Santos
  * @version 1.0 10/4/2018
  */
