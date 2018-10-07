@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // using two decks
         game = new SimpleBlackjack("Dealer", "Player", 2);
         Configuration config = getResources().getConfiguration();
         modifyLayout(config);
@@ -235,15 +236,8 @@ public class MainActivity extends AppCompatActivity{
                     dealerHitCount++;
                 }
 
-                /** Determine winner. */
-                if (!game.isBust(player) && player.getHand().sumHand() > dealer.getHand().sumHand()
-                        || game.isBust(dealer)) {
-                    resultText.setText(R.string.player_wins);
-                } else if (player.getHand().sumHand() == dealer.getHand().sumHand()) {
-                    resultText.setText(R.string.tie);
-                } else {
-                    resultText.setText(R.string.dealer_wins);
-                }
+                determineWinner();
+
             } else if (game.isBust(dealer) || hitCount <= MAX_HITS) {
                 String imageID = player.hit(deck);
                 setCardImage(imageID, whichPlayerCard(hitCount));
@@ -292,7 +286,13 @@ public class MainActivity extends AppCompatActivity{
             dealerHitCount++;
         }
 
-        /** Determine winner. */
+        determineWinner();
+    }
+
+    /**
+     * Determine the winner.
+     */
+    public void determineWinner() {
         if (!game.isBust(player) && player.getHand().sumHand() > dealer.getHand().sumHand()
                 || game.isBust(dealer)) {
             resultText.setText(R.string.player_wins);
@@ -308,6 +308,7 @@ public class MainActivity extends AppCompatActivity{
      */
     public void newGame(View view) {
         /** Creating new game and resetting text */
+        // using two decks
         game = new SimpleBlackjack("Dealer", "Player", 2);
         deck = game.getDeck();
         player = game.getPlayer2();
