@@ -207,7 +207,6 @@ public class MainActivity extends AppCompatActivity{
      */
     private class ButtonHandler implements View.OnClickListener {
         public void onClick(View v) {
-            hitCount++;
             if (hitCount > MAX_HITS) {
                 hit.setEnabled(false); // disable HIT button
                 stand.setEnabled(false); // disable STAND button
@@ -239,6 +238,7 @@ public class MainActivity extends AppCompatActivity{
                 determineWinner();
 
             } else if (game.isBust(dealer) || hitCount <= MAX_HITS) {
+                hitCount++;
                 String imageID = player.hit(deck);
                 setCardImage(imageID, whichPlayerCard(hitCount));
                 updatePlayerSum(player, playerSumText);
