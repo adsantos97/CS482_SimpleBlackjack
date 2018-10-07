@@ -5,5 +5,11 @@
     <string name="hit">Hit</string>
     <string name="stand">Stand</string>
     <string name="new_game">New Game</string>
-    <string name="sum_text">00</string>
+    <string name="sum_text_start">00</string>
+    <string name="current_sum">%d</string>
+    <string name="blackjack_winner">Blackjack Winner!</string>
+    <string name="bust_text">You Bust! You Lose!</string>
+    <string name="player_wins">Player Wins!</string>
+    <string name="dealer_wins">Dealer Wins!</string>
+    <string name="tie">Tie!</string>
 </resources>

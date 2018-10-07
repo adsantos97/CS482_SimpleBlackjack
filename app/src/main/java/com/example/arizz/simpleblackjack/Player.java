@@ -33,10 +33,12 @@ public class Player {
      * "Hit" method (for player) to ask for another card in an
      * attempt to get closer to a count of or exactly 21.
      * @param d the Deck to hit from
+     * @return Image ID used for the Card images
      */
-    public void hit(Deck d) {
+    public String hit(Deck d) {
         Card c = d.dealCardFromDeck();
         this.hand.addToHand(c);
+        return c.getImageID();
     }
 
     /**

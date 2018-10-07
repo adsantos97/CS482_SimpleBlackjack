@@ -23,6 +23,7 @@
         android:background="@color/newGameColor"
         android:text="@string/new_game"
         android:textColor="@color/buttonTextColor"
+        android:onClick="newGame"
         />
 
     <TextView
@@ -46,7 +47,7 @@
         android:layout_marginRight="10dp"
         android:gravity="right"
         android:textSize="20sp"
-        android:text="@string/sum_text"
+        android:text="@string/sum_text_start"
         />
 
     <!-- Dealer's Cards -->
@@ -62,7 +63,7 @@
         <ImageView
             android:id="@+id/dealer_first_card"
             style="@style/ImagePortrait"
-            android:src="@drawable/ace_of_clubs"
+            android:src="@drawable/back"
             />
 
         <ImageView
@@ -76,21 +77,18 @@
             android:id="@+id/dealer_third_card"
             style="@style/ImagePortrait"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/ace_of_diamonds"
             />
 
         <ImageView
             android:id="@+id/dealer_fourth_card"
             style="@style/ImagePortrait"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/back"
             />
 
         <ImageView
             android:id="@+id/dealer_fifth_card"
             style="@style/ImagePortrait"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/back"
             />
 
     </LinearLayout>
@@ -115,7 +113,7 @@
         android:layout_marginRight="10dp"
         android:gravity="right"
         android:textSize="20sp"
-        android:text="@string/sum_text"
+        android:text="@string/sum_text_start"
         />
 
     <!-- Player's Cards -->
@@ -131,7 +129,7 @@
         <ImageView
             android:id="@+id/player_first_card"
             style="@style/ImagePortrait"
-            android:src="@drawable/ace_of_clubs"
+            android:src="@drawable/back"
             />
 
         <ImageView
@@ -145,21 +143,18 @@
             android:id="@+id/player_third_card"
             style="@style/ImagePortrait"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/ace_of_diamonds"
             />
 
         <ImageView
             android:id="@+id/player_fourth_card"
             style="@style/ImagePortrait"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/back"
             />
 
         <ImageView
             android:id="@+id/player_fifth_card"
             style="@style/ImagePortrait"
             android:layout_marginLeft="5dp"
-            android:src="@drawable/back"
             />
 
     </LinearLayout>
@@ -174,8 +169,6 @@
         android:padding="5dp"
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
-        android:background="@color/resultColor"
-        android:text="Nothing yet."
         />
 
     <!-- Hit Button -->
@@ -195,6 +188,8 @@
         android:layout_marginLeft="30dp"
         android:background="@color/standColor"
         android:text="@string/stand"
+        android:onClick="stand"
+        android:clickable="true"
         />
 
 </RelativeLayout>

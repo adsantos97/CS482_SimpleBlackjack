@@ -46,7 +46,7 @@
         android:layout_alignRight="@id/hit_button"
         android:gravity="right"
         android:textSize="20sp"
-        android:text="@string/sum_text"
+        android:text="@string/sum_text_start"
         />
 
     <TextView
@@ -70,7 +70,7 @@
         android:layout_alignTop="@id/label_player"
         android:layout_marginLeft="120dp"
         android:textSize="20sp"
-        android:text="@string/sum_text"
+        android:text="@string/sum_text_start"
         />
 
     <LinearLayout
@@ -92,7 +92,7 @@
             <ImageView
                 android:id="@+id/dealer_first_card"
                 style="@style/ImageLandscape"
-                android:src="@drawable/ace_of_clubs"
+                android:src="@drawable/back"
                 />
 
             <ImageView
@@ -106,7 +106,7 @@
                 android:id="@+id/dealer_third_card"
                 style="@style/ImageLandscape"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/ace_of_diamonds"
+                android:src="@drawable/back"
                 />
 
             <ImageView
@@ -137,7 +137,7 @@
             <ImageView
                 android:id="@+id/player_first_card"
                 style="@style/ImageLandscape"
-                android:src="@drawable/ace_of_clubs"
+                android:src="@drawable/back"
                 />
 
             <ImageView
@@ -151,7 +151,7 @@
                 android:id="@+id/player_third_card"
                 style="@style/ImageLandscape"
                 android:layout_marginLeft="5dp"
-                android:src="@drawable/ace_of_diamonds"
+                android:src="@drawable/back"
                 />
 
             <ImageView
@@ -193,6 +193,7 @@
         android:layout_marginLeft="80dp"
         android:background="@color/hitColor"
         android:text="@string/hit"
+        android:onClick="hit"
         />
 
     <!-- Stand Button -->

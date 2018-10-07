@@ -100,7 +100,7 @@ public class Card {
      * @return string ID of Card
      */
     public String toStringID() {
-        return this.toString().toLowerCase() + ".png";
+        return this.toString().toLowerCase();
     }
 
     /**

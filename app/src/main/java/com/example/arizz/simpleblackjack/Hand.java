@@ -23,11 +23,6 @@ public class Hand {
         this.handMaxSize = handMaxSize;
     }
 
-    /** Getter for the Hand */
-    //public ArrayList<Card> getHand() {
-    //    return this.hand;
-    //}
-
     /**
      * Adds a card to the Hand if Hand isn't full.
      * @param dealtCard the card dealt from the deck
