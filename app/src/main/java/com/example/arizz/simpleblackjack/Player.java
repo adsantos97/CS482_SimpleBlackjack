@@ -40,11 +40,4 @@ public class Player {
         this.hand.addToHand(c);
         return c.getImageID();
     }
-
-    /**
-     * Clears/resets the player
-     */
-    public void reset() {
-        this.hand.resetHand();
-    }
 }

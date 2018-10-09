@@ -161,7 +161,12 @@ public class MainActivity extends AppCompatActivity{
 
         updatePlayerSum(player, playerSumText);
         if (game.checkIfBlackjack(player.getHand())) {
+            setCardImage(c4.getImageID(), dealerCard2);
+            updatePlayerSum(dealer, dealerSumText);
+            hit.setEnabled(false);
+            stand.setEnabled(false);
             resultText.setText(R.string.blackjack_winner);
+            determineWinner();
         }
     }
 
@@ -356,7 +361,12 @@ public class MainActivity extends AppCompatActivity{
 
         updatePlayerSum(player, playerSumText);
         if (game.checkIfBlackjack(player.getHand())) {
+            setCardImage(c4.getImageID(), dealerCard2);
+            updatePlayerSum(dealer, dealerSumText);
+            hit.setEnabled(false);
+            stand.setEnabled(false);
             resultText.setText(R.string.blackjack_winner);
+            determineWinner();
         }
     }
 }
